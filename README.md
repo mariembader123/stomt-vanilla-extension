@@ -25,8 +25,8 @@ The parameters can be configured in the admin-panel to initialize the widget.
 ## Example UI
 
 ### Admin-panel / User interface:
-![Example screenshot](https://i.imgur.com/nqAQD6z.png)
-![Example screenshot](https://i.imgur.com/PjlKtfNg.png)
+![Example screenshot](https://i.imgur.com/SukSxyw.png)
+![Example screenshot](https://i.imgur.com/wfUFCi4.png)
 
 ### Create feed:
 ![Example screenshot](https://i.imgur.com/Zzloxcz.png)
