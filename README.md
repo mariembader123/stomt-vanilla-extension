@@ -1,0 +1,1 @@
+# stomt-vanilla-extension
