@@ -1,4 +1,4 @@
-# DiscordWidget
+# StomtFeedback
 Stomt Feedback plugin module for Vanilla Forums
 
 ### Version

@@ -1,0 +1,13 @@
+/* Copyright 2017 YayPaul (Paul West) */
+/**
+ * Settings
+ *
+ * Setup settings page CSS
+ * @package StomtFeedback
+ * @author <a href="https://github.com/mariembader123">Mariem Bader</a>
+ * @copyright 2018 STOMT Gmbh.
+ * @license MIT
+ */
+
+
+ .StomtFeedback__info{ padding: 10px; margin: 10px; font-size: 14px; line-height: 1.4; }
