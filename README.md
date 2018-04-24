@@ -29,20 +29,24 @@ The parameters can be configured in the admin-panel to initialize the widget.
 ![Example screenshot](https://i.imgur.com/wfUFCi4.png)
 
 ### Create feed:
-![Example screenshot](https://i.imgur.com/Zzloxcz.png)
+![Example screenshot](https://imgur.com/k8Zu3ZB.png)
+![Example screenshot](https://imgur.com/aM8BW1H.png)
 
 
 ```html
 <div id="stomt_create"></div>
 ```
-1- go to widgets
+1- go to Pockets in your backend
 
-2-drag and drop html box into the desired place
+2-click add a pocket
 
-3-add the html code and save
+3-copy and paste the html code in the html-Box
+
+4-choose Page,position,visibility in devices and save.
 
 ### integrate feed:
-![Example screenshot](https://i.imgur.com/jynhpiE.png)
+![Example screenshot](https://imgur.com/OMy6ZVG.png)
+![Example screenshot](https://imgur.com/smJgNe4.png)
 
 
 ```html
@@ -50,12 +54,14 @@ The parameters can be configured in the admin-panel to initialize the widget.
 ```
 
 
+1- go to Pockets in your backend
 
-1- go to widgets
+2-click add a pocket
 
-2-drag and drop html box into the desired place
+3-copy and paste the html code in the html-Box
 
-3-add the html code and save
+4-choose Page,position,visibility in devices and save.
+
 
 ## Frequently Asked Questions
 
