@@ -7,7 +7,7 @@ if (!defined('APPLICATION')) exit();
  * @package StomtFeedback
  * @author <a href="https://github.com/mariembader123">Mariem Bader</a>
  * @copyright 2018 STOMT Gmbh.
- * @license MIT
+ * @license GPL2
  * @since 1.0
  */
 

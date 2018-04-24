@@ -94,5 +94,4 @@ See also the list of [contributors](https://github.com/stomt/stomt-nodebb-extens
 * [STOMT for Joomla](http://stomt.co/joomla)
 
 # License
-MIT  
-It's Free!
+GPL2  

@@ -18,7 +18,7 @@ $PluginInfo[ 'StomtFeedback' ] = [
     ),
     'Author' => '<a href="https://github.com/mariembader123">Mariem Bader</a>',
     'AuthorUrl' => 'https://github.com/mariembader123',
-    'License' => 'MIT'
+    'License' => 'GPL2'
 ];
 
 /**
@@ -30,7 +30,7 @@ $PluginInfo[ 'StomtFeedback' ] = [
  * @package StomtFeedback
  * @author <a href="https://github.com/mariembader123">Mariem Bader</a>
  * @copyright 2018 STOMT Gmbh.
- * @license MIT
+ * @license GPL2
  */
 class StomtFeedback extends Gdn_Plugin {
 
