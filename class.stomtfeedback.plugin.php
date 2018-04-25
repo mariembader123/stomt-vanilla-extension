@@ -40,6 +40,10 @@ class StomtFeedbackPlugin implements Gdn_IPlugin {
             'left' => 'left',
             'right' => 'right'
         ];
+        $options = [
+            'true' => 'true',
+            'false' => 'false'
+        ];
 		$Schema =
                   array(
         'Plugins.StomtFeedback.TrackerId' => 
@@ -79,6 +83,14 @@ class StomtFeedbackPlugin implements Gdn_IPlugin {
                         'Control' => 'TextBox',
                         'Default' => C('Plugins.StomtFeedback.colorhover', '#04729E')
 
+                    ),'Plugins.StomtFeedback.preload' => 
+                      array(
+                        'LabelCode' => 'Preload',
+                        'Control' => 'radiolist',
+                         'Items' => $options,
+                        'Default' => C('Plugins.StomtFeedback.preload', 
+                          'true')
+
                     )
 
                   );
@@ -101,6 +113,7 @@ class StomtFeedbackPlugin implements Gdn_IPlugin {
         $TextColor = C('Plugins.StomtFeedback.colortext');
         $backgColor = C('Plugins.StomtFeedback.colorbackg');
         $hoverColor = C('Plugins.StomtFeedback.colorhover');
+        $preload = C('Plugins.StomtFeedback.preload');
     
  echo "
  <script>
@@ -111,6 +124,7 @@ class StomtFeedbackPlugin implements Gdn_IPlugin {
   colorText: ' ".$TextColor."',
   colorBackground: ' ".$backgColor."', 
   colorHover: ' ".$hoverColor."' ,
+  preload:' ".$preload."' ,
   ShowClose:true
 };
   // Include the STOMT JavaScript SDK
@@ -127,7 +141,7 @@ class StomtFeedbackPlugin implements Gdn_IPlugin {
   // you can find it here: https://www.stomt.com/YOUR_PAGE/apps
   Stomt.push(['addTab', options]);
   Stomt.push(['addCreate', options]);
-  
+Stomt.push(['addFeed', options]);
 </script>";
 
 	}
