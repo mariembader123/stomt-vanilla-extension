@@ -5,7 +5,7 @@ Stomt Feedback plugin module for Vanilla Forums
 1.0
 
 # Installation
-Head to the Vanilla Forums plugin site and search for "StomtFeedback". Download the zip file and unpack it into your Vanilla forums plugins folder.  
+Head to the Vanilla Forums plugin site and search for "Stomt Feedback". Download the zip file and unpack it into your Vanilla forums plugins folder.  
 Alternatively you can download the source from this repro and follow the same unpack steps as above.
 
 ### Configuration
