@@ -30,7 +30,6 @@ The parameters can be configured in the admin-panel to initialize the widget.
 
 ### Create feed:
 ![Example screenshot](https://imgur.com/57ysm71.png)
-![Example screenshot](https://imgur.com/aM8BW1H.png)
 
 
 ```html
