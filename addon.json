@@ -2,7 +2,7 @@
    "key": "StomtFeedback",
    "name": "Stomt Feedback",
    "description": "STOMT makes it easy for anyone to provide instant feedback. This plugin allows you to customize the STOMT feedback button and add it to your wordpress site.Installation is simple and only takes seconds.",
-   "version": "1.0",
+   "version": "1.1",
    "License": "GNU GPL2",
    "type": "addon",       
    "mobileFriendly": true,
