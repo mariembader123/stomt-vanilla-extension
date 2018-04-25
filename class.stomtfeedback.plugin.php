@@ -1,214 +1,137 @@
-<?php
-
-$PluginInfo[ 'StomtFeedback' ] = [
-    'Name' => 'Stomt-Feedback',
-    'Description' => 'Creates a settings page to setup your Stomt-Feedback and adds it to your website.',
-    'Version' => '0.1',
-    'RequiredApplications' => array( 'Vanilla' => '2.3' ),
-    'SettingsUrl' => '/dashboard/settings/StomtFeedback',
-    'SettingsPermission' => 'Garden.Settings.Manage',
-    'RequiredPlugins' => FALSE,
-    'RequiredTheme' => FALSE,
-    'MobileFriendly' => TRUE,
-    'RegisterPermissions' => array(
-        'Plugins.StomtFeedback.Add',
-        'Plugins.StomtFeedback.Manage',
-        'Plugins.StomtFeedback.Notify',
-        'Plugins.StomtFeedback.View'
-    ),
-    'Author' => '<a href="https://github.com/mariembader123">Mariem Bader</a>',
-    'AuthorUrl' => 'https://github.com/mariembader123',
-    'License' => 'GPL2'
-];
+<?php if (!defined('APPLICATION')) exit();
 
 /**
- * Stomt Feedback
+ *  Yandex Metrika plugin.
  *
- * Plugin that creates a settings page to setup your 
- * Stomt Feedback and adds it to your sidebar.
- *
- * @package StomtFeedback
- * @author <a href="https://github.com/mariembader123">Mariem Bader</a>
- * @copyright 2018 STOMT Gmbh.
- * @license GPL2
+ * @copyright 2014-2018 Ivan Gurin
+ * @license http://www.opensource.org/licenses/gpl-2.0.php GNU GPL v2
  */
-class StomtFeedback extends Gdn_Plugin {
 
-	/**
-     * Plugin constructor
-     *
-     * @package StomtFeedback
-     * @since 1.0
-     */
-    public function __construct() {
+$PluginInfo['StomtFeedback'] = 
+	array(
+		'Name' => 'Stomt Feedback',
+		'Description' => 'STOMT makes it easy for anyone to provide instant feedback. This plugin allows you to customize the STOMT feedback button and add it to your wordpress site.Installation is simple and only takes seconds.',
+		'License' => 'GNU GPL2',
+		'Version' => '1.0',
+ 		'Date' => 'April 25, 2018',
+		'Author' => 'Mariem Bader',
+		'AuthorEmail' => 'bader.mariem1@gmail.com',
+		'AuthorUrl' => 'https://open.vanillaforums.com/profile/mariem_bader122',
+		'SettingsUrl' => 'settings/StomtFeedback',
+		'RequiredApplications' => array('Dashboard' => '>=2.0.0'));
 
-    }
+/*
+$Configuration['Plugins']['StomtFeedback']['TrackerId'] = '00000000';
+*/
 
-    /**
-     * Plugin setup
-     *
-     * @package StomtFeedback
-     * @since 1.0
-     */
-    public function setup() {
+/**
+ * Class StomtFeedbackPlugin
+ */
+class StomtFeedbackPlugin implements Gdn_IPlugin {
+	
+	public function SettingsController_StomtFeedback_Create($Sender) {
+		$Sender->Permission('Garden.Plugins.Manage');
+		$Sender->AddSideMenu();
+		$Sender->Title('Stomt Feedback');
+		$ConfigurationModule = new ConfigurationModule($Sender);
+		$ConfigurationModule->RenderAll = True;
 
-        // Set up the plugin's default values
-        saveToConfig( 'Plugin.StomtFeedback.id', "" );
-        saveToConfig( 'Plugin.StomtFeedback.position', "right" );
-        saveToConfig( 'Plugin.StomtFeedback.label', "Feedback" );
-        saveToConfig( 'Plugin.StomtFeedback.textColor', "#FFFFFF" );
-        saveToConfig( 'Plugin.StomtFeedback.backgroundColor', "#0091C9" );
-        saveToConfig( 'Plugin.StomtFeedback.HoverColor', "#04729E" );
+    $items = [
+            'left' => 'left',
+            'right' => 'right'
+        ];
+		$Schema =
+                  array(
+        'Plugins.StomtFeedback.TrackerId' => 
+                      array(
+                        'LabelCode' => 'App',
+                        'Control' => 'TextBox',
+                        'Default' => C('Plugins.StomtFeedback.TrackerId', '')
 
-        // Trigger database changes
-        $this->structure();
+                    ),'Plugins.StomtFeedback.position' => 
+                      array(
+                        'LabelCode' => 'Position',
+                        'Control' => 'radiolist',
+                        'Items' => $items,
 
-    }
+                        'Default' => C('Plugins.StomtFeedback.position', 'right')
 
-    /**
-     * Plugin Structure
-     *
-     * @package StomtFeedback
-     * @since 1.0
-     */
-    public function structure() {
+                    ),'Plugins.StomtFeedback.label' => 
+                      array(
+                        'LabelCode' => 'Label',
+                        'Control' => 'TextBox',
+                        'Default' => C('Plugins.StomtFeedback.label', 'Feedback')
+                    ),'Plugins.StomtFeedback.colortext' => 
+                      array(
+                        'LabelCode' => 'TextColor',
+                        'Control' => 'TextBox',
+                        'Default' => C('Plugins.StomtFeedback.colortext', '#FFFFFF')
 
-    }
+                    ),'Plugins.StomtFeedback.colorbackg' => 
+                      array(
+                        'LabelCode' => 'Background-Color',
+                        'Control' => 'TextBox',
+                        'Default' => C('Plugins.StomtFeedback.colorbackg', '#0091C9')
 
-    /**
-     * Plugin cleanup
-     *
-     * @package StomtFeedback
-     * @since 1.0
-     */
-    public function onDisable() {
+                    ),'Plugins.StomtFeedback.colorhover' => 
+                      array(
+                        'LabelCode' => 'Hover-Color',
+                        'Control' => 'TextBox',
+                        'Default' => C('Plugins.StomtFeedback.colorhover', '#04729E')
 
-        removeFromConfig( 'Plugin.StomtFeedback.id', "" );
-        removeFromConfig( 'Plugin.StomtFeedback.position', "right" );
-        removeFromConfig( 'Plugin.StomtFeedback.label', "Feedback" );
-        removeFromConfig( 'Plugin.StomtFeedback.textColor', "#FFFFFF" );
-        removeFromConfig( 'Plugin.StomtFeedback.backgroundColor', "#0091C9" );
-        removeFromConfig( 'Plugin.StomtFeedback.HoverColor', "#04729E" );
+                    )
 
+                  );
+		$ConfigurationModule->Schema($Schema);
+		$ConfigurationModule->Initialize();
+		$Sender->View = dirname(__FILE__) . DS . 'views' . DS . 'settings.php';
+		$Sender->ConfigurationModule = $ConfigurationModule;
+		$Sender->Render();
+	}
+	
+	
+	public function Base_AfterBody_Handler($Sender) {
 
-        
+        if ($Sender->MasterView == 'admin')
+            return;
 
-        // Never delete from the database OnDisable.
-        // Usually, you want re-enabling a plugin to be as if it was never off.
-
-    }
-
-    /**
-     * CSS/JS Event Hooks
-     *
-     * @param $Sender Sending controller instance
-     *
-     * @package StomtFeedback
-     * @since 1.0
-     */
-   
-
-	/**
-	 * Default action on /discussion/poll is not found
-	 *
-	 * @param $Sender Sending controller instance
-	 *
-     * @package StomtFeedback
-     * @since 1.0
-	 */
-	public function controller_index( $Sender ) {
-
-		//shift request args for implied method
-		array_unshift( $Sender->RequestArgs, NULL );
-		$this->Controller_Results( $Sender );
+       $appId = C('Plugins.StomtFeedback.TrackerId');
+        $position = C('Plugins.StomtFeedback.position');
+        $label = C('Plugins.StomtFeedback.label');
+        $TextColor = C('Plugins.StomtFeedback.colortext');
+        $backgColor = C('Plugins.StomtFeedback.colorbackg');
+        $hoverColor = C('Plugins.StomtFeedback.colorhover');
+    
+ echo "
+ <script>
+ var options = {
+  appId: '".$appId."',
+  position: '".$position."',
+  label: '".$label."',
+  colorText: ' ".$TextColor."',
+  colorBackground: ' ".$backgColor."', 
+  colorHover: ' ".$hoverColor."' ,
+  ShowClose:true
+};
+  // Include the STOMT JavaScript SDK
+  (function(w, d, n, r, t, s){
+    w.Stomt = w.Stomt||[];
+    t = d.createElement(n);
+    s = d.getElementsByTagName(n)[0];
+    t.async=1;
+    t.src=r;
+    s.parentNode.insertBefore(t,s);
+  })(window, document, 'script', 'https://www.stomt.com/widget.js');
+  
+  // Adjust the 'APP_ID' to your application id 
+  // you can find it here: https://www.stomt.com/YOUR_PAGE/apps
+  Stomt.push(['addTab', options]);
+  Stomt.push(['addCreate', options]);
+  
+</script>";
 
 	}
-
-    /**
-     * Stomt Feedback Controller
-     *
-     * @param $Sender Sending controller instance
-     *
-     * @package StomtFeedback
-     * @since 1.0
-     */
-    public function settingsController_StomtFeedback_create( $Sender ) {
-
-    	// Prevent non-admins from accessing this page
-        $Sender->permission( 'Garden.Settings.Manage' );
-        $Sender->addCSSFile('settings.css', 'plugins/StomtFeedback');
-        $Sender->setData( 'PluginDescription',$this->getPluginKey( 'Description' ) );
-
-        $Sender->Form = new Gdn_Form();
-
-        $Validation = new Gdn_Validation();
-        $ConfigurationModel = new Gdn_ConfigurationModel( $Validation );
-        $ConfigurationModel->setField( array(
-            'Plugin.StomtFeedback.id'	=> '',
-            'Plugin.StomtFeedback.position' => 'right',
-            'Plugin.StomtFeedback.label' => 'Feedback',
-            'Plugin.StomtFeedback.textColor' => '#FFFFFF',
-            'Plugin.StomtFeedback.backgroundColor' => '#0091C9',
-            'Plugin.StomtFeedback.HoverColor' => '#04729E'
-        ) );
-
-        // Set the model on the form.
-        $Sender->Form->setModel( $ConfigurationModel );
-
-        // If seeing the form for the first time...
-        if( $Sender->Form->authenticatedPostBack() === false ) {
-            // Apply the config settings to the form.
-            $Sender->Form->setData( $ConfigurationModel->Data );
-		}
-		else {
-            //Validate
-            //Save
-            $Saved = $Sender->Form->save();
-            //if( $Saved ) {
-                $Sender->StatusMessage = t( "Your changes have been saved." );
-            
-                //Sort module position based on setting
-                $ModuleSort = c( 'Modules.Vanilla.Panel' );
-                $ModuleSort = preg_replace( '/\StomtFeedbackModule\b/', '', $ModuleSort); //Remove module from list
-                $ModuleSort = array_filter( $ModuleSort ); //Clear empty slots
-               
-                SaveToConfig( 'Modules.Vanilla.Panel', $ModuleSort ); //Save the setting
-            //}
-        }
-
-        $Sender->addSideMenu( '/dashboard/settings/StomtFeedback' );
-        $Sender->title( 'Stomt-Feedback' );
-        $Sender->render( $this->getView( 'settings.php' ) );
-
-    }
-
-    /**
-     * Stomt Feedback Renderer
-     *
-     * @param $Sender Sending controller instance
-     *
-     * @package StomtFeedback
-     * @since 1.0
-     */
-    public function Base_Render_Before( $Sender ) {
-
-        $Controller = $Sender->ControllerName;
-        $ShowOnController = array(
-            'discussioncontroller',
-            'categoriescontroller',
-            'discussionscontroller',
-            'profilecontroller',
-            'activitycontroller'
-        );
-
-        if( !InArrayI( $Controller, $ShowOnController ) ) return; 
-
-
-        $StomtFeedbackModule = new StomtFeedbackModule( $Sender );
-        $Sender->AddModule( $StomtFeedbackModule );
-
-    }
-
+	
+	public function Setup() {
+	}
 }
-
-?>

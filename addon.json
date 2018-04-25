@@ -1,0 +1,22 @@
+{
+   "key": "StomtFeedback",
+   "name": "Stomt Feedback",
+   "description": "STOMT makes it easy for anyone to provide instant feedback. This plugin allows you to customize the STOMT feedback button and add it to your wordpress site.Installation is simple and only takes seconds.",
+   "version": "1.0",
+   "License": "GNU GPL2",
+   "type": "addon",       
+   "mobileFriendly": true,
+   "settingsUrl": "/settings/StomtFeedback",
+   "settingsPermission": "Garden.Settings.Manage",
+   "icon": "icon.png",
+   "authors": [
+        {
+            "name": "STOMT Gmbh",
+            "email": "bader.mariem1@gmail.com",
+            "homepage": "https://open.vanillaforums.com/profile/mariem_bader122"
+        }
+    ],
+    "require": {
+        "vanilla": ">=2.0.0"
+    }
+}
