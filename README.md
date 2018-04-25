@@ -26,10 +26,10 @@ The parameters can be configured in the admin-panel to initialize the widget.
 
 ### Admin-panel / User interface:
 ![Example screenshot](https://i.imgur.com/SukSxyw.png)
-![Example screenshot](https://i.imgur.com/wfUFCi4.png)
+![Example screenshot](https://imgur.com/IEcHFS3.png)
 
 ### Create feed:
-![Example screenshot](https://imgur.com/k8Zu3ZB.png)
+![Example screenshot](https://imgur.com/57ysm71.png)
 ![Example screenshot](https://imgur.com/aM8BW1H.png)
 
 
@@ -45,8 +45,8 @@ The parameters can be configured in the admin-panel to initialize the widget.
 4-choose Page,position,visibility in devices and save.
 
 ### integrate feed:
-![Example screenshot](https://imgur.com/OMy6ZVG.png)
-![Example screenshot](https://imgur.com/smJgNe4.png)
+![Example screenshot](https://imgur.com/NH7s93s.png)
+![Example screenshot](https://imgur.com/4UDCMDe.png)
 
 
 ```html
