@@ -1,9 +1,9 @@
 <?php if (!defined('APPLICATION')) exit();
 
 /**
- *  Yandex Metrika plugin.
+ *  Stomt Feedback plugin.
  *
- * @copyright 2014-2018 Ivan Gurin
+ * @copyright STOMT Gmbh
  * @license http://www.opensource.org/licenses/gpl-2.0.php GNU GPL v2
  */
 
@@ -12,7 +12,7 @@ $PluginInfo['StomtFeedback'] =
 		'Name' => 'Stomt Feedback',
 		'Description' => 'STOMT makes it easy for anyone to provide instant feedback. This plugin allows you to customize the STOMT feedback button and add it to your wordpress site.Installation is simple and only takes seconds.',
 		'License' => 'GNU GPL2',
-		'Version' => '1.0',
+		'Version' => '1.1',
  		'Date' => 'April 25, 2018',
 		'Author' => 'Mariem Bader',
 		'AuthorEmail' => 'bader.mariem1@gmail.com',
@@ -21,7 +21,6 @@ $PluginInfo['StomtFeedback'] =
 		'RequiredApplications' => array('Dashboard' => '>=2.0.0'));
 
 /*
-$Configuration['Plugins']['StomtFeedback']['TrackerId'] = '00000000';
 */
 
 /**
